@@ -5,7 +5,7 @@ import org.newdawn.slick.state.*;
 
 public class Game extends StateBasedGame{
 	
-	public static final String gameName = "SlerkDerk";
+	public static final String gameName = "Some Next RTS!";
 	public static final int menu = 0;
 	public static final int play = 1;
 	
