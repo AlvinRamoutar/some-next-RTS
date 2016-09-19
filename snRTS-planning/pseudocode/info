@@ -3,3 +3,14 @@
 #                                                              #
 #                                                              #
 ################################################################
+
+States:
+- Intro
+- Main Menu(s)
+- Settings
+- Loading Screen(s)
+- Mission Select
+- Tutorial(?)
+- Game
+- Post-Match Results
+- Credits
