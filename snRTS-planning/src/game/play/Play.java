@@ -5,40 +5,29 @@ import org.newdawn.slick.state.*;
 
 public class Play extends BasicGameState {
 	
-	Image movIcon;
-	int movIconX = 0;
-	int movIconY = 400;
-	
+	//Constructor
 	public Play(int state) {
 		
 	}
 	
+	//Initialize elements. Runs ONCE before any rendering.
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-		movIcon = new Image("res/energyBlip.png");
+
 	}
 	
+	//Draw objects to state/window.
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-		movIcon.draw(movIconX, movIconY, 0.1f);
+		
 	}
 	
+	//Interact with drawn objects through updates.
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-		Input input = gc.getInput();
-		if(input.isKeyDown(Input.KEY_UP) && movIconY > 0) {
-			movIconY -= 1;
-		} 
-		if (input.isKeyDown(Input.KEY_DOWN)) {
-			movIconY += 1;
-		} 
-		if (input.isKeyDown(Input.KEY_RIGHT)) {
-			movIconX += 1;
-		}
-		if (input.isKeyDown(Input.KEY_LEFT) && movIconX > 0) {
-			movIconX -= 1;
-		}
+	
 	}
 	
+	//ID of the current state. Change '?' accordingly.
 	public int getID() {
-		return 1;
+		return 4;
 	}
 	
 	

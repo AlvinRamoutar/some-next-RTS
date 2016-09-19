@@ -3,8 +3,9 @@ package game;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
-import game.*;
-import game.loading.Intro;
+import game.loading.*;
+import game.menu.*;
+import game.play.*;
 
 public class Game extends StateBasedGame{
 	
@@ -19,14 +20,22 @@ public class Game extends StateBasedGame{
 	public Game(String gameName) {
 		super(gameName);
 		this.addState(new Intro(intro));
+		this.addState(new Loading(loading));
 		this.addState(new MainMenu(main_menu));
+		this.addState(new MPMenu(mp_menu));
 		this.addState(new Play(play));
+		this.addState(new PostPlay(post_play));
 	}
 	
 	public void initStatesList(GameContainer gc) throws SlickException {
-		this.getState(menu).init(gc, this);
+		this.getState(intro).init(gc, this);
+		this.getState(loading).init(gc, this);
+		this.getState(main_menu).init(gc, this);
+		this.getState(mp_menu).init(gc, this);
 		this.getState(play).init(gc, this);
-		this.enterState(menu);
+		this.getState(post_play).init(gc, this);
+		
+		this.enterState(intro);
 	}
 	
 	public static void main(String[] args) {
