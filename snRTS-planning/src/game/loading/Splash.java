@@ -37,7 +37,7 @@ public class Splash extends BasicGameState {
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
 
 		if (DTT.main(3)) {
-			sbg.enterState(GV.LOADING, new FadeOutTransition(), new FadeInTransition());	
+			sbg.enterState(GV.MAIN_MENU, new FadeOutTransition(), new FadeInTransition());	
 		}
 	}
 	
