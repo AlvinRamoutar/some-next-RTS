@@ -17,7 +17,9 @@ public class Loading extends BasicGameState{
 	
 	//Draw objects to state/window.
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-		
+		Image bg = new Image("res/sample_imgs/bg2.jpg");
+		g.drawImage(bg, 0, 0);
+		g.drawString("This is the loading state.", 10, 30);
 	}
 	
 	//Interact with drawn objects through updates.

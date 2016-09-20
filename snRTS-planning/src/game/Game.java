@@ -6,50 +6,40 @@ import org.newdawn.slick.state.*;
 import game.loading.*;
 import game.menu.*;
 import game.play.*;
+import game.GV;
 
 public class Game extends StateBasedGame{
-	
-	public static final String gameName = "Some Next RTS!";
-	public static final int intro = 0;
-	public static final int loading = 1;
-	public static final int main_menu = 2;
-	public static final int mp_menu = 3;
-	public static final int play = 4;
-	public static final int post_play = 5;
-	
+		
 	public Game(String gameName) {
-		super(gameName);
-		this.addState(new Intro(intro));
-		this.addState(new Loading(loading));
-		this.addState(new MainMenu(main_menu));
-		this.addState(new MPMenu(mp_menu));
-		this.addState(new Play(play));
-		this.addState(new PostPlay(post_play));
+		super(GV.GAMENAME);
+		this.addState(new Splash(GV.SPLASH));
+		this.addState(new Loading(GV.LOADING));
+		this.addState(new MainMenu(GV.MAIN_MENU));
+		this.addState(new MPMenu(GV.MP_MENU));
+		this.addState(new Play(GV.PLAY));
+		this.addState(new PostPlay(GV.POST_PLAY));
 	}
 	
 	public void initStatesList(GameContainer gc) throws SlickException {
-		this.getState(intro).init(gc, this);
-		this.getState(loading).init(gc, this);
-		this.getState(main_menu).init(gc, this);
-		this.getState(mp_menu).init(gc, this);
-		this.getState(play).init(gc, this);
-		this.getState(post_play).init(gc, this);
+		this.getState(GV.SPLASH).init(gc, this);
+		this.getState(GV.LOADING).init(gc, this);
+		this.getState(GV.MAIN_MENU).init(gc, this);
+		this.getState(GV.MP_MENU).init(gc, this);
+		this.getState(GV.PLAY).init(gc, this);
+		this.getState(GV.POST_PLAY).init(gc, this);
 		
-		this.enterState(intro);
+		this.enterState(GV.SPLASH);
 	}
 	
 	public static void main(String[] args) {
 		AppGameContainer appgc;
 		try {
-			appgc = new AppGameContainer(new Game(gameName));
-			appgc.setDisplayMode(Globals.screenWidth, Globals.screenHeight, false);
+			appgc = new AppGameContainer(new Game(GV.GAMENAME));
+			appgc.setDisplayMode(GV.screenWidth, GV.screenHeight, false);
 			appgc.start();
 		} catch(SlickException e) {
 			e.printStackTrace();
 		}
-		
-	
 
 	}
-
 }
