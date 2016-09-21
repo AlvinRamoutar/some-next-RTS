@@ -2,10 +2,6 @@ package game.menu;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.io.File;
-import java.io.IOException;
 
 import game.GV;
 
@@ -17,9 +13,6 @@ public class MainMenu extends BasicGameState {
 	int deltaCount = 0;
 	boolean doPulse = false;
 	
-	Font COMFORTAA_BOLD = null;
-	Font COMFORTAA_LIGHT = null;
-	
 	//Constructor
 	public MainMenu(int state) {
 		
@@ -27,21 +20,14 @@ public class MainMenu extends BasicGameState {
 	
 	//Initialize elements. Runs ONCE before any rendering.
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-		//gc.setTargetFrameRate(5);
-		bg1 = new Image("res/images/bg/title_1.jpg");
+
+		bg1 = new Image("res/images/bg/title_11.jpg");
 		bg0 = new Image("res/images/bg/title_0.jpg");
 		
-		//Initializing menu font.
-		try {
-			COMFORTAA_BOLD = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/Comfortaa/Comfortaa-Bold.ttf"));
-			COMFORTAA_LIGHT = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/Comfortaa/Comfortaa-Light.ttf"));
-		} catch (FontFormatException | IOException e) {
-			e.printStackTrace();
-		}
-		//COMFORTAA_BOLD = COMFORTAA_BOLD.deriveFont(14.0f);
-		COMFORTAA_BOLD = COMFORTAA_BOLD.deriveFont(50.0f);
-		COMFORTAA_LIGHT = COMFORTAA_LIGHT.deriveFont(14.0f);
-		System.out.println("Done initializing main menu.");
+		//AngelCodeFont Initializing
+		GV.FONTBOLD_COMFORTAA = new AngelCodeFont("res/fonts/Comfortaa/Comfortaa-Bold.fnt","res/fonts/Comfortaa/Comfortaa-Bold.png");
+		GV.FONTLIGHT_COMFORTAA = new AngelCodeFont("res/fonts/Comfortaa/Comfortaa-Light.fnt","res/fonts/Comfortaa/Comfortaa-Light.png");
+
 	}
 	
 	//Draw objects to state/window.
@@ -49,37 +35,32 @@ public class MainMenu extends BasicGameState {
 		g.drawImage(bg0,0,0);
 		g.drawImage(bg1,0,0);
 		
-		//TrueTypeFont cbF = new TrueTypeFont(COMFORTAA_BOLD, true);
-		//TrueTypeFont clF = new TrueTypeFont(COMFORTAA_LIGHT, true);
+		GV.FONTBOLD_COMFORTAA.drawString(30, 85, "SOME NEXT RTS", new org.newdawn.slick.Color(255, 255, 255, 0.60f));
+		GV.FONTLIGHT_COMFORTAA.drawString(5, 5, GV.VERSION, new org.newdawn.slick.Color(255, 255, 255, 0.5f));
+		GV.FONTLIGHT_COMFORTAA.drawString(454, 318, "SINGLE PLAYER [WIP]", new org.newdawn.slick.Color(255, 255, 255, 0.5f));
+		GV.FONTLIGHT_COMFORTAA.drawString(518, 348, "MULTIPLAYER", new org.newdawn.slick.Color(255, 255, 255, 0.5f));
+		GV.FONTLIGHT_COMFORTAA.drawString(556, 378, "OPTIONS", new org.newdawn.slick.Color(255, 255, 255, 0.5f));
+		GV.FONTLIGHT_COMFORTAA.drawString(590, 408, "HELP", new org.newdawn.slick.Color(255, 255, 255, 0.5f));
+		GV.FONTLIGHT_COMFORTAA.drawString(592, 438, "QUIT", new org.newdawn.slick.Color(255, 255, 255, 0.5f));
+
 		
-		//cbF.drawString(32, 32, "Some Next RTS!", Color.lightGray);
-		
-		String debugDeltaAndRender = "bgPulseCount is @ " + bgPulseCount;
-		g.drawString(debugDeltaAndRender, 32, 128);
-		
-		
+		// Adjusts the opacity of background images to create a pulsating effect.
 		if (doPulse == false) {
 			if (bg1.getAlpha() > 0.00) {
 				bg1.setAlpha(bg1.getAlpha() - 0.001f);
-				//System.out.println("Making it transparent!");
 			}
-		} else if (doPulse == true) {
+		} else  {
 			if (bg1.getAlpha() < 1) {
 				bg1.setAlpha(bg1.getAlpha() + 0.001f);
-				//System.out.println("Making it full!!");
 			}
-		} else {
-			//System.out.println("Confused atm... alpha @ " + bg1.getAlpha());
-		}
-	
+		} 
 	}
 	
 	//Interact with drawn objects through updates.
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
 		bgPulseCount+=delta;
-		if (bgPulseCount > 1000) {
+		if (bgPulseCount > 500) {
 			doPulse = !doPulse;
-			//System.out.println("Alternating pulse!");
 			bgPulseCount = 0;
 		}
 	}
