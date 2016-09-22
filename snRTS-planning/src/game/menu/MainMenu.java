@@ -1,5 +1,8 @@
 package game.menu;
 
+import java.awt.Desktop;
+import java.net.URL;
+
 import org.newdawn.slick.*;
 import org.newdawn.slick.gui.MouseOverArea;
 import org.newdawn.slick.state.*;
@@ -17,6 +20,8 @@ public class MainMenu extends BasicGameState {
 	private MouseOverArea[] menuOptions = new MouseOverArea[5];
 	private float[] menuOptionOpacity = new float[5];
 	private boolean[] menuOptionOpacityStatus = new boolean[5];
+	
+	String urlString = "https://github.com/AlvinRamoutar/some-next-RTS/";
 	
 	//Constructor
 	public MainMenu(int state) {
@@ -112,6 +117,7 @@ public class MainMenu extends BasicGameState {
 					case 2:
 						break;
 					case 3:
+						openWebpage(urlString);
 						break;
 					case 4:
 						gc.exit();
@@ -126,4 +132,19 @@ public class MainMenu extends BasicGameState {
 		return 2;
 	}
 	
+
+public static void openWebpage(String urlString) {
+	urlString = "https://github.com/AlvinRamoutar/some-next-RTS/";
+    try {
+        Desktop.getDesktop().browse(new URL(urlString).toURI());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 }
+	
+}
+
+
+
+
+
