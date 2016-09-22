@@ -132,7 +132,7 @@ public class MainMenu extends BasicGameState {
 		return 2;
 	}
 	
-
+//Help redirect
 public static void openWebpage(String urlString) {
 	urlString = "https://github.com/AlvinRamoutar/some-next-RTS/";
     try {
@@ -141,7 +141,6 @@ public static void openWebpage(String urlString) {
         e.printStackTrace();
     }
 }
-	
 }
 
 
