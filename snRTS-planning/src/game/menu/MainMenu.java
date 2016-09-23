@@ -21,8 +21,6 @@ public class MainMenu extends BasicGameState {
 	private float[] menuOptionOpacity = new float[5];
 	private boolean[] menuOptionOpacityStatus = new boolean[5];
 	
-	String urlString = "https://github.com/AlvinRamoutar/some-next-RTS/";
-	
 	//Constructor
 	public MainMenu(int state) {
 		
@@ -116,7 +114,7 @@ public class MainMenu extends BasicGameState {
 						game.Options.main(null);
 						break;
 					case 3:
-						openWebpage(urlString);
+						openHelpPage(GV.HELPURL);
 						break;
 					case 4:
 						gc.exit();
@@ -131,15 +129,14 @@ public class MainMenu extends BasicGameState {
 		return 2;
 	}
 	
-//Help redirect
-public static void openWebpage(String urlString) {
-	urlString = "https://github.com/AlvinRamoutar/some-next-RTS/";
-    try {
-        Desktop.getDesktop().browse(new URL(urlString).toURI());
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-}
+	//Help redirect to github repos.
+	public static void openHelpPage(String helpURL) {
+	    try {
+	        Desktop.getDesktop().browse(new URL(helpURL).toURI());
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	}
 }
 
 

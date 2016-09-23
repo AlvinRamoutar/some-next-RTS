@@ -26,6 +26,8 @@ public class GV {
 	public static AngelCodeFont FONTBOLD_COMFORTAA;
 	public static AngelCodeFont FONTLIGHT_COMFORTAA;
 	
+	public static final String HELPURL = "https://github.com/AlvinRamoutar/some-next-RTS/";
+	
 	public static int MASTERVOLUME = 100;
 	public static int SLAVESOUNDVOLUME = 100;
 	public static int SLAVEMUSICVOLUME = 100;
