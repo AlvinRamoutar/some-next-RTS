@@ -5,10 +5,10 @@ import game.GV;
 public class DTT {
 
 	public static boolean main(float seconds) {
-		GV.currentTicks++;
+		GV.SPLASHTICKS++;
 		
-		if(GV.currentTicks/1000 == seconds) {
-			GV.currentTicks = 0;
+		if(GV.SPLASHTICKS/1000 == seconds) {
+			GV.SPLASHTICKS = 0;
 			return true;
 		} else {
 			return false;

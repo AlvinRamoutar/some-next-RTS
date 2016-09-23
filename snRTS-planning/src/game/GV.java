@@ -16,12 +16,20 @@ public class GV {
 	public static final int PLAY = 4;
 	public static final int POST_PLAY = 5;
 	
-	public static int screenWidth = 640;
-	public static int screenHeight = 480;
-	public static int currentTicks = 0;
+	public static int SPLASHTICKS = 0;
 	
-	//Fonts, consider leaving me here.
+	public static int SCREENWIDTH = 640;
+	public static int SCREENHEIGHT = 480;
+	public static int DEBUG_SCREENWIDTH = 320;
+	public static int DEBUG_SCREENHEIGHT = 320;
+
 	public static AngelCodeFont FONTBOLD_COMFORTAA;
 	public static AngelCodeFont FONTLIGHT_COMFORTAA;
+	
+	public static int MASTERVOLUME = 100;
+	public static int SLAVESOUNDVOLUME = 100;
+	public static int SLAVEMUSICVOLUME = 100;
+	public static int SOUNDVOLUME = SLAVESOUNDVOLUME * (MASTERVOLUME/100);
+	public static int MUSICVOLUME = SLAVEMUSICVOLUME * (MASTERVOLUME/100);
 }
 

@@ -42,7 +42,6 @@ public class MainMenu extends BasicGameState {
 			menuOptions[a].setMouseDownColor(new Color(255,255,255,0f));
 			menuOptionOpacity[a] = 0.5f;
 		}
-		
 	}
 	
 	//Draw objects to state/window.
@@ -65,23 +64,22 @@ public class MainMenu extends BasicGameState {
 			
 			if(menuOptionOpacityStatus[a] == true) {
 				if(menuOptionOpacity[a] < 1) {
-					menuOptionOpacity[a] += 0.001f;
+					menuOptionOpacity[a] += 0.005f;
 				}
 			} else {
 				if(menuOptionOpacity[a] > 0.5) {
-					menuOptionOpacity[a] -= 0.001f;
+					menuOptionOpacity[a] -= 0.005f;
 				}
 			}
 		}	
 	
-		
 		// Adjusts the opacity of background images to create a pulsating effect.
 		if (doPulse == false) {
 			if (bg1.getAlpha() > 0.00) {
 				bg1.setAlpha(bg1.getAlpha() - 0.001f);
 			}
 		} else  {
-			if (bg1.getAlpha() < 1) {
+			if (bg1.getAlpha() < 0.75) {
 				bg1.setAlpha(bg1.getAlpha() + 0.001f);
 			}
 		} 
@@ -110,6 +108,7 @@ public class MainMenu extends BasicGameState {
 					case 1:
 						break;
 					case 2:
+						game.Options.main(null);
 						break;
 					case 3:
 						break;
