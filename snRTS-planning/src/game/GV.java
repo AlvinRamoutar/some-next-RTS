@@ -22,7 +22,8 @@ public class GV {
 	public static int SCREENHEIGHT = 480;
 	public static int DEBUG_SCREENWIDTH = 320;
 	public static int DEBUG_SCREENHEIGHT = 320;
-
+	public static boolean OPTIONSVISIBLE = false;
+	
 	public static AngelCodeFont FONTBOLD_COMFORTAA;
 	public static AngelCodeFont FONTLIGHT_COMFORTAA;
 	

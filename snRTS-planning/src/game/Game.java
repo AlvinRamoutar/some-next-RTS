@@ -40,9 +40,12 @@ public class Game extends StateBasedGame{
 			// Enable/Disable me as please!
 			appgc.setShowFPS(false);
 			appgc.setAlwaysRender(true);
-
+			
+			game.Options.main(null);
+			game.menu.console.Command.print("Game Window launching.", 1);
 			appgc.start();
 		} catch(SlickException e) {
+			game.menu.console.Command.print("Failed to launch game window.", 3);
 			e.printStackTrace();
 		}
 

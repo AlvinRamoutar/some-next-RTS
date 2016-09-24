@@ -111,6 +111,7 @@ public class MainMenu extends BasicGameState {
 					case 1:
 						break;
 					case 2:
+						GV.OPTIONSVISIBLE = true;
 						game.Options.main(null);
 						break;
 					case 3:

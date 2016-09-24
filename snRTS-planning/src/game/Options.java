@@ -27,11 +27,10 @@ public class Options extends JFrame {
 	
 	private static final long serialVersionUID = 0;
 	
-	
 	JLabel instMasterVolume;
 	JLabel instSoundVolume;
 	JLabel instMusicVolume;
-	JTextArea consoleOutput;
+	public static JTextArea consoleOutput;
 	JTextArea consoleInput;
 	JSeparator consoleSeparator1;
 	JSeparator consoleSeparator2;
@@ -108,7 +107,7 @@ public class Options extends JFrame {
 		c.insets = new Insets(10,0,0,0);
 		theOneAndOnlyPanel.add(consoleSeparator1, c);
 		
-		consoleOutput = new JTextArea("Console instance launched!\nyaya");
+		consoleOutput = new JTextArea("Debug instance running!");
 		Font italicConsoleFont = new Font(consoleOutput.getFont().getName(),Font.ITALIC,consoleOutput.getFont().getSize());
 		consoleOutput.setFont(italicConsoleFont);
 		DefaultCaret consoleCaret = (DefaultCaret)consoleOutput.getCaret();
@@ -150,7 +149,7 @@ public class Options extends JFrame {
 		
 		theOneAndOnlyPanel.setBackground(Color.darkGray);
 		
-		this.setVisible(true);
+		this.setVisible(GV.OPTIONSVISIBLE);
 	}
 	
 	// Implementing a listener for command send.
@@ -168,7 +167,8 @@ public class Options extends JFrame {
 	private class ListenForCMD implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == submitCMD) {
-				
+				game.menu.console.Command.main(consoleInput.getText());
+				consoleOutput.setCaretPosition(consoleOutput.getDocument().getLength());
 			}
 		}
 	}
