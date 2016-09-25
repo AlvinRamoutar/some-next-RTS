@@ -7,11 +7,8 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 
 public class Filechooser {
-
-	//static JFileChooser fileChooser = new JFileChooser();
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 	
