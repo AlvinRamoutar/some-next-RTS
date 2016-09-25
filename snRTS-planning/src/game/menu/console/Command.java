@@ -9,7 +9,6 @@ import game.GV;
 public class Command {
 
 	static ArrayList<String> consoleLog = new ArrayList<>();
-	static ArrayList<String> commandList = new ArrayList<>();
 	
 	public static void main(String cmd) {
 
