@@ -9,15 +9,16 @@ import game.GV;
 public class Command {
 
 	static ArrayList<String> consoleLog = new ArrayList<>();
+	static ArrayList<String> commandList = new ArrayList<>();
 	
 	public static void main(String cmd) {
 
 		String justCMD = "";
 		
-		if(cmd.indexOf("/") == -1) {
+		if((cmd.indexOf("/") == -1) || (cmd.indexOf("/") != 0)) {
 			print("Prefix '/' to your CMD.", 2);
 		} else {
-			justCMD = cmd.substring(cmd.indexOf("/")+1);
+			justCMD = cmd.substring((cmd.indexOf("/")+1), cmd.length());
 			if(cmd.indexOf(" ") == -1) {
 				commandParse(justCMD, cmd);
 			} else {
