@@ -28,7 +28,7 @@ public class MainMenu extends BasicGameState {
 	
 	//Initialize elements. Runs ONCE before any rendering.
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-
+		
 		bg1 = new Image("res/images/bg/title_11.jpg");
 		bg0 = new Image("res/images/bg/title_0.jpg");
 		

@@ -15,6 +15,7 @@ public class GV {
 	public static final int MP_MENU = 3;
 	public static final int PLAY = 4;
 	public static final int POST_PLAY = 5;
+	public static boolean TOGGLEFPS = false;
 	
 	public static int SPLASHTICKS = 0;
 	
@@ -23,6 +24,7 @@ public class GV {
 	public static int DEBUG_SCREENWIDTH = 320;
 	public static int DEBUG_SCREENHEIGHT = 320;
 	public static boolean OPTIONSVISIBLE = false;
+	public static boolean EXIT = false; //Does nothing for now, use as a check in the future
 	
 	public static AngelCodeFont FONTBOLD_COMFORTAA;
 	public static AngelCodeFont FONTLIGHT_COMFORTAA;

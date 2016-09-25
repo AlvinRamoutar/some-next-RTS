@@ -13,29 +13,59 @@ public class Command {
 	public static void main(String cmd) {
 
 		String justCMD = "";
-		String entireCMD = "";
 		
 		if(cmd.indexOf("/") == -1) {
 			print("Prefix '/' to your CMD.", 2);
 		} else {
-			entireCMD = cmd.substring(cmd.indexOf("/")+1);
-			justCMD = entireCMD.substring(0, entireCMD.indexOf(" "));
-			commandParse(justCMD, entireCMD);
+			justCMD = cmd.substring(cmd.indexOf("/")+1);
+			if(cmd.indexOf(" ") == -1) {
+				commandParse(justCMD, cmd);
+			} else {
+				justCMD = justCMD.substring(0, justCMD.indexOf(" "));
+				commandParse(justCMD, cmd);	
+			}
 		}
 	}
 	
 	public static void commandParse(String cmd, String entireCMD) {
 		switch(cmd) {
+			case "exportlogs":
+				String[] currentLog = consoleLog.toArray(new String[0]);
+				game.menu.console.Filechooser.exportLogs(currentLog);
+				print("Exporting logs to designated location.", 1);
+				break;
+			case "togglefps":
+				if(GV.TOGGLEFPS == false) {
+					print("Enabling FPS counter.", 1);
+					GV.TOGGLEFPS = true;
+					game.Game.toggleFPS();
+				} else {
+					print("Disabling FPS counter.", 1);
+					GV.TOGGLEFPS = false;
+					game.Game.toggleFPS();
+				}
+				break;
 			case "help":
+				game.menu.MainMenu.openHelpPage(GV.HELPURL);
+				print("Launching help page in web browser.", 1);
 				break;
 			case "quit":
+				print("Terminating game instance, good bye!", 2);
+				game.Game.quitGame(null);
+				GV.EXIT = true;
 				break;
 			case "exit":
-				
+				print("Terminating game instance, good bye!", 2);
+				game.Game.quitGame(null);
+				GV.EXIT = true;
+				break;
+			default:
+				print("Command doesn't exist!", 2);
 				break;
 		}
 	}
 	
+	//Handles printing command status' to debug window.
 	public static void print(String msg, int type) {
 		
 		Calendar time = Calendar.getInstance();

@@ -1,6 +1,7 @@
 package game;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -8,6 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JSlider;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.text.DefaultCaret;
 
@@ -26,12 +28,13 @@ import game.GV;
 public class Options extends JFrame {
 	
 	private static final long serialVersionUID = 0;
+	static JFileChooser fileChooser;
 	
 	JLabel instMasterVolume;
 	JLabel instSoundVolume;
 	JLabel instMusicVolume;
 	public static JTextArea consoleOutput;
-	JTextArea consoleInput;
+	JTextField consoleInput;
 	JSeparator consoleSeparator1;
 	JSeparator consoleSeparator2;
 	JButton submitCMD;
@@ -57,6 +60,8 @@ public class Options extends JFrame {
 		this.setTitle(GV.GAMENAME + " - Debug");
 		
 		jPanelCreation();
+		
+		fileChooser = new JFileChooser();
 	}
 
 	private void jPanelCreation() {
@@ -125,7 +130,7 @@ public class Options extends JFrame {
 		//theOneAndOnlyPanel.add(consoleOutput, c);
 		theOneAndOnlyPanel.add(consoleScrollbar, c);
 		
-		consoleInput = new JTextArea("enter cmd...");
+		consoleInput = new JTextField("enter cmd...");
 		consoleInput.setBackground(new Color(90,90,90));
 		consoleInput.setForeground(Color.white);
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -150,20 +155,12 @@ public class Options extends JFrame {
 		theOneAndOnlyPanel.setBackground(Color.darkGray);
 		
 		this.setVisible(GV.OPTIONSVISIBLE);
+		
+		// Sets pressing 'enter' at debug to submit CMDs.
+		theOneAndOnlyPanel.getRootPane().setDefaultButton(submitCMD);
 	}
 	
 	// Implementing a listener for command send.
-	/*
-	 * Tired ASF. Finish later.
-	 * PLAN:
-	 * -Create seperate class to handle commands
-	 * -Implement sliders for audio (once we even HAVE a soundsystem).
-	 * -Have source(button) activation send commands to said class, W. status return.
-	 * -Integrate commandline into EVERYTHING. Including states, AND EXCEPTIONS.
-	 * 															 ESPECIALLY EXCEPTIONS.
-	 * 
-	 */
-	
 	private class ListenForCMD implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == submitCMD) {
@@ -172,5 +169,5 @@ public class Options extends JFrame {
 			}
 		}
 	}
-
+	
 }
