@@ -5,7 +5,7 @@ import org.newdawn.slick.state.*;
 
 import game.loading.*;
 import game.menu.*;
-import game.play.*;
+import game.sp_play.*;
 import game.GV;
 
 public class Game extends StateBasedGame{
@@ -18,8 +18,8 @@ public class Game extends StateBasedGame{
 		this.addState(new Loading(GV.LOADING));
 		this.addState(new MainMenu(GV.MAIN_MENU));
 		this.addState(new MPMenu(GV.MP_MENU));
-		this.addState(new Play(GV.PLAY));
-		this.addState(new PostPlay(GV.POST_PLAY));
+		this.addState(new SPPlay(GV.SPPLAY));
+		this.addState(new PostSPPlay(GV.POST_SPPLAY));
 	}
 	
 	public void initStatesList(GameContainer gc) throws SlickException {
@@ -27,8 +27,8 @@ public class Game extends StateBasedGame{
 		this.getState(GV.LOADING).init(gc, this);
 		this.getState(GV.MAIN_MENU).init(gc, this);
 		this.getState(GV.MP_MENU).init(gc, this);
-		this.getState(GV.PLAY).init(gc, this);
-		this.getState(GV.POST_PLAY).init(gc, this);
+		this.getState(GV.SPPLAY).init(gc, this);
+		this.getState(GV.POST_SPPLAY).init(gc, this);
 		
 		this.enterState(GV.SPLASH);
 	}

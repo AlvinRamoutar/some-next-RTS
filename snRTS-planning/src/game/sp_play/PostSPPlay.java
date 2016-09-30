@@ -1,12 +1,12 @@
-package game.play;
+package game.sp_play;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
-public class PostPlay extends BasicGameState {
+public class PostSPPlay extends BasicGameState {
 	
 	//Constructor
-	public PostPlay(int state) {
+	public PostSPPlay(int state) {
 		
 	}
 	

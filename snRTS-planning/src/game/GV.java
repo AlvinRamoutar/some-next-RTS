@@ -13,8 +13,10 @@ public class GV {
 	public static final int LOADING = 1;
 	public static final int MAIN_MENU = 2;
 	public static final int MP_MENU = 3;
-	public static final int PLAY = 4;
-	public static final int POST_PLAY = 5;
+	public static final int SPPLAY = 4;
+	public static final int POST_SPPLAY = 5;
+	//public static final int MPPLAY = 6;
+	//public static final int POST_MPPLAY = 7;
 	public static boolean TOGGLEFPS = false;
 	
 	public static int SPLASHTICKS = 0;
@@ -28,6 +30,7 @@ public class GV {
 	
 	public static AngelCodeFont FONTBOLD_COMFORTAA;
 	public static AngelCodeFont FONTLIGHT_COMFORTAA;
+	public static AngelCodeFont FONTLIGHT_EXO;
 	
 	public static final String HELPURL = "https://github.com/AlvinRamoutar/some-next-RTS/";
 	

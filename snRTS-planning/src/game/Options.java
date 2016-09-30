@@ -62,6 +62,7 @@ public class Options extends JFrame {
 		jPanelCreation();
 		
 		fileChooser = new JFileChooser();
+		toFront();
 	}
 
 	private void jPanelCreation() {
@@ -127,7 +128,6 @@ public class Options extends JFrame {
 		c.insets = new Insets(0,0,0,0);
 		c.weighty = 2;
 		c.gridy = 7;
-		//theOneAndOnlyPanel.add(consoleOutput, c);
 		theOneAndOnlyPanel.add(consoleScrollbar, c);
 		
 		consoleInput = new JTextField("enter cmd...");

@@ -6,6 +6,8 @@ import java.net.URL;
 import org.newdawn.slick.*;
 import org.newdawn.slick.gui.MouseOverArea;
 import org.newdawn.slick.state.*;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
 import game.GV;
 
@@ -107,8 +109,10 @@ public class MainMenu extends BasicGameState {
 			if(menuOptions[a].isMouseOver() && gc.getInput().isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
 				switch(a) {
 					case 0:
+						sbg.enterState(GV.SPPLAY, new FadeOutTransition(), new FadeInTransition());	
 						break;
 					case 1:
+						game.menu.console.ExternalPrompts.main("Not Implemented!", "This feature is in development.", 1, 256, 100);
 						break;
 					case 2:
 						GV.OPTIONSVISIBLE = true;
@@ -138,6 +142,7 @@ public class MainMenu extends BasicGameState {
 	        e.printStackTrace();
 	    }
 	}
+	
 }
 
 
