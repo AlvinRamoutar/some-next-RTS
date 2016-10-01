@@ -71,7 +71,6 @@ public class SPPlay extends BasicGameState {
 		if(isPromptReadyForInteraction) {
 			if(promptOptions[0].isMouseOver() && gc.getInput().isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
 				isPromptNeeded = false;
-				System.out.println("Being dlicked");
 			}
 		}
 	}
@@ -100,13 +99,12 @@ public class SPPlay extends BasicGameState {
 				isPromptReadyForInteraction = false;
 				isPromptActive = false;
 				isPromptTransitioning = false;
-				System.out.println("cant click be botch");
 			}
 		}
 		if(promptTransitionCount > 2 && isPromptTransitioning == false && isPromptActive) {
 			promptElementXPos += 1;
 			promptTransitionCount = 0;
-			if(promptElementXPos == 0) {
+			if(promptElementXPos == 0 || promptElementXPos > 0) {
 				isPromptReadyForInteraction = true;
 			}
 		}
