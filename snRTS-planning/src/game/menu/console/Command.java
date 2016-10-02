@@ -67,7 +67,7 @@ public class Command {
 					if (usernamecharacters>=20){
 						print ("Your user name is too long it has to be under 20 characters it is currently \n"+ usernamecharacters+" characters!",1);
 					}
-					if (usernamecharacters<=20){
+					if (usernamecharacters<=0){
 						print ("Your user name is too short it is currently \n"+ usernamecharacters+" characters!",1);
 					}
 					if (GV.PLAYERNAME.contains(" ")){
