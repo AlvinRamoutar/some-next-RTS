@@ -63,15 +63,15 @@ public class Command {
 				GV.PLAYERNAME = entireCMD.substring(9, entireCMD.length());
 				int usernamecharacters = GV.PLAYERNAME.length();
 				if (usernamecharacters<=0||usernamecharacters>=20||GV.PLAYERNAME.contains(" ")){
-					print("Your Username is invalid!",1);
+					print("Your username is invalid!",1);
 					if (usernamecharacters>=20){
-						print ("Your user name is too long it has to be under 20 characters it is currently \n"+ usernamecharacters+" characters!",1);
+						print ("Your username is too long it has to be under 20 characters it is currently \n"+ usernamecharacters+" characters!",1);
 					}
 					if (usernamecharacters<=0){
-						print ("Your user name is too short it is currently \n"+ usernamecharacters+" characters!",1);
+						print ("Your username is too short it is currently \n"+ usernamecharacters+" characters!",1);
 					}
 					if (GV.PLAYERNAME.contains(" ")){
-						print ("Your Username contains a space!",1);
+						print ("Your username contains a space!",1);
 					}
 				}
 				else{
