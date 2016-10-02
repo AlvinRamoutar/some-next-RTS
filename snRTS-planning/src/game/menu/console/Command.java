@@ -79,7 +79,7 @@ public class Command {
 				}
 				//GV.PLAYERNAME = entireCMD.substring(entireCMD.indexOf(entireCMD.length()));;		
 				break;
-			case "name":
+			case "myname":
 				print (GV.PLAYERNAME,1);
 				break;
 			default:
