@@ -39,5 +39,7 @@ public class GV {
 	public static int SLAVEMUSICVOLUME = 100;
 	public static int SOUNDVOLUME = SLAVESOUNDVOLUME * (MASTERVOLUME/100);
 	public static int MUSICVOLUME = SLAVEMUSICVOLUME * (MASTERVOLUME/100);
+	
+	public static String PLAYERNAME = "Player";
 }
 

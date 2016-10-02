@@ -59,6 +59,26 @@ public class Command {
 				game.Game.quitGame(null);
 				GV.EXIT = true;
 				break;
+			case "setname":
+				GV.PLAYERNAME = entireCMD.substring(9, entireCMD.length());
+				int usernamecharacters = GV.PLAYERNAME.length();
+				if (usernamecharacters<=0||usernamecharacters>=20){
+					print("Your Username is invalid!",1);
+					if (usernamecharacters>=20){
+						print ("Your user name is too long it has to be under 20 characters it is currently \n"+ usernamecharacters+" characters!",1);
+					}
+					if (usernamecharacters<=20){
+						print ("Your user name is too short it is currently \n"+ usernamecharacters+" characters!",1);
+					}
+				}
+				else{
+					print("Your name has been changed to "+GV.PLAYERNAME, 1);
+				}
+				//GV.PLAYERNAME = entireCMD.substring(entireCMD.indexOf(entireCMD.length()));;		
+				break;
+			case "name":
+				print (GV.PLAYERNAME,1);
+				break;
 			default:
 				print("Command doesn't exist!", 2);
 				break;
