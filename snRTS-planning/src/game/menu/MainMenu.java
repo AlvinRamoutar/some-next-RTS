@@ -112,7 +112,7 @@ public class MainMenu extends BasicGameState {
 						sbg.enterState(GV.SPPLAY, new FadeOutTransition(), new FadeInTransition());	
 						break;
 					case 1:
-						game.menu.console.ExternalPrompts.main("Not Implemented!", "This feature is in development.", 1, 256, 100);
+						game.menu.console.Command.print("Not implemented!", 2);
 						break;
 					case 2:
 						GV.OPTIONSVISIBLE = true;

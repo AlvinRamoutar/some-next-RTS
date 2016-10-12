@@ -3,6 +3,8 @@ package game.sp_play;
 import org.newdawn.slick.*;
 import org.newdawn.slick.gui.MouseOverArea;
 import org.newdawn.slick.state.*;
+import org.newdawn.slick.tiled.TiledMap;
+import org.newdawn.slick.tiled.Layer;
 
 import game.GV;
 
@@ -19,6 +21,7 @@ public class SPPlay extends BasicGameState {
 	private boolean isPromptActive = false;
 	private boolean isPromptReadyForInteraction = false;
 	
+	private TiledMap map;
 	
 	private MouseOverArea[] promptOptions = new MouseOverArea[2];
 	
@@ -36,11 +39,25 @@ public class SPPlay extends BasicGameState {
 		
 		GV.FONTLIGHT_EXO = new AngelCodeFont("res/fonts/Exo/Exo-Light.fnt", "res/fonts/Exo/Exo-Light.png");
 		
+		// Loading default map, which is mapDraft.
+		//map = new TiledMap("res/map/isometric_grass_and_water.tmx", "res/map");
+		
+		try {
+			map = new TiledMap("res/map/mapDraft01.tmx", "res/map/");
+		} catch(SlickException e) {
+			e.printStackTrace();
+			game.menu.console.Command.print("Failed to load map!", 3);
+		}
+		
 	}
 	
 	//Draw objects to state/window.
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+		
 		g.drawImage(guiBacking,0,0);
+		
+		map.render(0,0);
+		//map.renderIsometricMap(0,0,64,16,64,32,null, false);
 		
 		//Draws the, well, notification prompt.
 		drawPrompt(g, gc, "line1", "line2", "line3", 1);
