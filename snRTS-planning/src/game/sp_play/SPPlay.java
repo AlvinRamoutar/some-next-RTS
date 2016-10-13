@@ -11,19 +11,20 @@ import game.GV;
 public class SPPlay extends BasicGameState {
 	
 	private Image guiBacking;
-	private Image promptTab;
-	private Image x, checkmark;
+	protected Image promptTab;
+	protected Image x;
+	protected Image checkmark;
 	private int promptTabXPos = -225;
 	private int promptTransitionCount = 0;
 	private int promptElementXPos = -225;
-	
+	protected MouseOverArea[] promptOptions = new MouseOverArea[2];	
 	private boolean isPromptNeeded = true;
 	private boolean isPromptActive = false;
 	private boolean isPromptReadyForInteraction = false;
 	
 	private TiledMap map;
-	
-	private MouseOverArea[] promptOptions = new MouseOverArea[2];
+	private MouseOverArea[] mapScroll = new MouseOverArea[4];
+	private int mapScrollThickness = 16;
 	
 	//Constructor
 	public SPPlay(int state) {
@@ -41,22 +42,30 @@ public class SPPlay extends BasicGameState {
 		
 		// Loading default map, which is mapDraft.
 		//map = new TiledMap("res/map/isometric_grass_and_water.tmx", "res/map");
+		// Map fills screen @ 10 tiles by 15 (MIN).
 		
 		try {
-			map = new TiledMap("res/map/mapDraft01.tmx", "res/map/");
+			map = new TiledMap("res/map/mapSample.tmx", "res/map/");
 		} catch(SlickException e) {
 			e.printStackTrace();
 			game.menu.console.Command.print("Failed to load map!", 3);
 		}
+		
+		//Setting up map edges for scrolling.
+		mapScroll[0] = new MouseOverArea(gc, null, 0, 0, GV.SCREENWIDTH, mapScrollThickness);
+		mapScroll[1] = new MouseOverArea(gc, null, GV.SCREENWIDTH - mapScrollThickness, 0, mapScrollThickness, GV.SCREENHEIGHT);
+		mapScroll[2] = new MouseOverArea(gc, null, 0, GV.SCREENHEIGHT - mapScrollThickness, GV.SCREENWIDTH, mapScrollThickness);
+		mapScroll[3] = new MouseOverArea(gc, null, 0, 0, mapScrollThickness, GV.SCREENHEIGHT);
+		
 		
 	}
 	
 	//Draw objects to state/window.
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 		
-		g.drawImage(guiBacking,0,0);
+		//g.drawImage(guiBacking,0,0);
 		
-		map.render(0,0);
+		map.render((GV.SCREENWIDTH/2)-32,0);
 		//map.renderIsometricMap(0,0,64,16,64,32,null, false);
 		
 		//Draws the, well, notification prompt.
@@ -68,12 +77,20 @@ public class SPPlay extends BasicGameState {
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
 		promptTransition(delta);
 		
-		//for(int a=0; a < promptOptions.length; a++) {
 		if(isPromptReadyForInteraction) {
 			if(promptOptions[0].isMouseOver() && gc.getInput().isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
 				isPromptNeeded = false;
 			}
 		}
+		
+		//Map scroller 
+		
+		for(int a=0; a < mapScroll.length; a++) {
+			if(mapScroll[a].isMouseOver()) {
+				System.out.println("Mousing over: " + a);
+			}
+		}
+		
 	}
 	
 	//ID of the current state. Change '?' accordingly.
