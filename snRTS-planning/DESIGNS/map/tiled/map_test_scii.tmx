@@ -36,7 +36,7 @@
   <image source="BRIDGE.png" width="96" height="96"/>
  </tileset>
  <tileset firstgid="34" name="New File Texture" tilewidth="64" tileheight="64" tilecount="160" columns="10">
-  <image source="TEST.png" width="640" height="1024"/>
+  <image source="New Isometric tile set.png" width="640" height="1024"/>
  </tileset>
  <layer name="WATER" width="300" height="500">
   <data encoding="base64" compression="zlib">
