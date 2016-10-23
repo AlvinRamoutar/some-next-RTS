@@ -41,5 +41,9 @@ public class GV {
 	public static int MUSICVOLUME = SLAVEMUSICVOLUME * (MASTERVOLUME/100);
 	
 	public static String PLAYERNAME = "Player";
+	
+	public static boolean SCROLL_INTERFACE = true;		//default is keyboard
+	public static int MAPSCROLLBAR_THICKNESS = 16;
+	
 }
 

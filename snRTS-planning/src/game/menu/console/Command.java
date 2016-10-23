@@ -75,12 +75,28 @@ public class Command {
 					}
 				}
 				else{
-					print("Your name has been changed to "+GV.PLAYERNAME, 1);
-				}
-				//GV.PLAYERNAME = entireCMD.substring(entireCMD.indexOf(entireCMD.length()));;		
+					print("Your name has been changed to "+ GV.PLAYERNAME, 1);
+				}		
 				break;
 			case "myname":
 				print (GV.PLAYERNAME,1);
+				break;
+			case "scrollwithkeyboard":
+				print("Now scrolling with interface: KEYBOARD (directional).", 1);
+				GV.SCROLL_INTERFACE = true;
+				break;
+			case "scrollwithmouse":
+				print("Now scrolling with interface: MOUSE (mouseover map edge).", 1);
+				GV.SCROLL_INTERFACE = false;
+				break;
+			case "mapscrollbarthickness":
+			    try {
+			        GV.MAPSCROLLBAR_THICKNESS = Integer.parseInt(entireCMD.substring(23, entireCMD.length()));
+			    } catch(NumberFormatException e){
+			        print("Cannot change thickness! Make sure value is an INTEGER.", 3);
+			        GV.MAPSCROLLBAR_THICKNESS = 16;
+			    }
+				print("Updated Map Scrollbar Thickness to: " + GV.MAPSCROLLBAR_THICKNESS, 1);
 				break;
 			default:
 				print("Command doesn't exist!", 2);

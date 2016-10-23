@@ -4,7 +4,6 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.gui.MouseOverArea;
 import org.newdawn.slick.state.*;
 import org.newdawn.slick.tiled.TiledMap;
-import org.newdawn.slick.tiled.Layer;
 
 import game.GV;
 
@@ -17,18 +16,22 @@ public class SPPlay extends BasicGameState {
 	private int promptTabXPos = -225;
 	private int promptTransitionCount = 0;
 	private int promptElementXPos = -225;
-	protected MouseOverArea[] promptOptions = new MouseOverArea[2];	
+	private MouseOverArea[] promptOptions = new MouseOverArea[2];	
 	private boolean isPromptNeeded = true;
 	private boolean isPromptActive = false;
 	private boolean isPromptReadyForInteraction = false;
 	
 	private TiledMap map;
-	private MouseOverArea[] mapScroll = new MouseOverArea[4];
-	private int mapScrollThickness = 16;
+	public static MouseOverArea[] mapScroll = new MouseOverArea[4];
+	
+	private float mapCamX, mapCamY = 0;
+	private float mapScrollSpeed = 1;
+	private boolean[] mapScrollMouseoverState = new boolean[4];
+	private float moveSpeed;
 	
 	//Constructor
 	public SPPlay(int state) {
-		
+
 	}
 	
 	//Initialize elements. Runs ONCE before any rendering.
@@ -40,32 +43,27 @@ public class SPPlay extends BasicGameState {
 		
 		GV.FONTLIGHT_EXO = new AngelCodeFont("res/fonts/Exo/Exo-Light.fnt", "res/fonts/Exo/Exo-Light.png");
 		
-		// Loading default map, which is mapDraft.
-		//map = new TiledMap("res/map/isometric_grass_and_water.tmx", "res/map");
-		// Map fills screen @ 10 tiles by 15 (MIN).
-		
+		//Initializing the Map.
 		try {
 			map = new TiledMap("res/map/mapSample.tmx", "res/map/");
+			game.menu.console.Command.print("Map loaded successfully!", 1);
 		} catch(SlickException e) {
 			e.printStackTrace();
 			game.menu.console.Command.print("Failed to load map!", 3);
 		}
 		
 		//Setting up map edges for scrolling.
-		mapScroll[0] = new MouseOverArea(gc, null, 0, 0, GV.SCREENWIDTH, mapScrollThickness);
-		mapScroll[1] = new MouseOverArea(gc, null, GV.SCREENWIDTH - mapScrollThickness, 0, mapScrollThickness, GV.SCREENHEIGHT);
-		mapScroll[2] = new MouseOverArea(gc, null, 0, GV.SCREENHEIGHT - mapScrollThickness, GV.SCREENWIDTH, mapScrollThickness);
-		mapScroll[3] = new MouseOverArea(gc, null, 0, 0, mapScrollThickness, GV.SCREENHEIGHT);
-		
-		
+		initMapScrollAreas(gc);
 	}
 	
 	//Draw objects to state/window.
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 		
+		//g.translate(-mapCamX * mapScrollSpeed, -mapCamY * mapScrollSpeed);
 		//g.drawImage(guiBacking,0,0);
 		
-		map.render((GV.SCREENWIDTH/2)-32,0);
+		map.render((int)-mapCamX,(int)-mapCamY);
+		//map.render((GV.SCREENWIDTH/2)-32,0);
 		//map.renderIsometricMap(0,0,64,16,64,32,null, false);
 		
 		//Draws the, well, notification prompt.
@@ -83,14 +81,83 @@ public class SPPlay extends BasicGameState {
 			}
 		}
 		
-		//Map scroller 
+		moveSpeed = delta * 0.4f * (1/mapScrollSpeed);
+		  
+		if(mapScrollMouseoverState[3]) {
+			mapCamX -= moveSpeed;
+		}
+		if(mapScrollMouseoverState[0]) {
+			mapCamY -= moveSpeed;
+		}
+		if(mapScrollMouseoverState[1]) {
+			mapCamX += moveSpeed;
+		}
+		if(mapScrollMouseoverState[2]) {
+			mapCamY += moveSpeed;
+		}
 		
-		for(int a=0; a < mapScroll.length; a++) {
-			if(mapScroll[a].isMouseOver()) {
-				System.out.println("Mousing over: " + a);
+		// Implements scrolling by mousing over the edges of the map, checks interface.
+		if (GV.SCROLL_INTERFACE == false) {
+			for(int a=0; a < mapScroll.length; a++) {
+				if(mapScroll[a].isMouseOver()) {
+					mapScrollMouseoverState[a] = true;
+				} else {
+					mapScrollMouseoverState[a] = false;
+				}
 			}
 		}
 		
+	}
+	
+	public void keyPressed(int key, char c) {
+		
+		// Checks if the current scroll interface is keyboard, or mouse.
+		if (GV.SCROLL_INTERFACE) {
+			if( key == Input.KEY_LEFT) {
+				mapScrollMouseoverState[3] = true;
+		    }
+		    if( key == Input.KEY_UP ) {
+		    	mapScrollMouseoverState[0] = true;
+		    }
+		    if( key == Input.KEY_RIGHT ) {
+		        mapScrollMouseoverState[1] = true;
+		    }
+		    if( key == Input.KEY_DOWN ) {
+		    	mapScrollMouseoverState[2] = true;
+		    }
+		}
+		
+	}
+	
+	public void keyReleased(int key, char c) {
+		
+		// Checks if the current scroll interface is keyboard, or mouse.
+		if (GV.SCROLL_INTERFACE) {
+			if( key == Input.KEY_LEFT) {
+				mapScrollMouseoverState[3] = false;
+		    }
+		    if( key == Input.KEY_UP ) {
+		    	mapScrollMouseoverState[0] = false;
+		    }
+		    if( key == Input.KEY_RIGHT ) {
+		        mapScrollMouseoverState[1] = false;
+		    }
+		    if( key == Input.KEY_DOWN ) {
+		    	mapScrollMouseoverState[2] = false;
+		    }
+		}
+		
+		if( key == Input.KEY_GRAVE ) {
+			GV.OPTIONSVISIBLE = true;
+			game.Options.main(null);
+		}
+	}
+	
+	public static void initMapScrollAreas(GameContainer gc) {
+		mapScroll[0] = new MouseOverArea(gc, null, 0, 0, GV.SCREENWIDTH, GV.MAPSCROLLBAR_THICKNESS);
+		mapScroll[1] = new MouseOverArea(gc, null, GV.SCREENWIDTH - GV.MAPSCROLLBAR_THICKNESS, 0, GV.MAPSCROLLBAR_THICKNESS, GV.SCREENHEIGHT);
+		mapScroll[2] = new MouseOverArea(gc, null, 0, GV.SCREENHEIGHT - GV.MAPSCROLLBAR_THICKNESS, GV.SCREENWIDTH, GV.MAPSCROLLBAR_THICKNESS);
+		mapScroll[3] = new MouseOverArea(gc, null, 0, 0, GV.MAPSCROLLBAR_THICKNESS, GV.SCREENHEIGHT);
 	}
 	
 	//ID of the current state. Change '?' accordingly.
@@ -121,7 +188,7 @@ public class SPPlay extends BasicGameState {
 		
 		//Transition tab out of existence.
 		if(promptTransitionCount > 2 && isPromptActive == true && isPromptNeeded == false) {
-			if(promptTabXPos == -225) {
+			if(promptTabXPos == -225 + mapCamX) {
 				isPromptReadyForInteraction = false;
 				isPromptActive = false;
 			} else {
@@ -129,7 +196,7 @@ public class SPPlay extends BasicGameState {
 				promptTransitionCount = 0;
 			}
 			
-			if(promptElementXPos == -225 || promptElementXPos < -225) {
+			if(promptElementXPos == -225 + mapCamX || promptElementXPos < -225 + mapCamX) {
 				isPromptReadyForInteraction = false;
 			} else {
 				promptElementXPos -= 1;
