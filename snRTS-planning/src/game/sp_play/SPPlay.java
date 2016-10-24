@@ -24,7 +24,8 @@ public class SPPlay extends BasicGameState {
 	private TiledMap map;
 	public static MouseOverArea[] mapScroll = new MouseOverArea[4];
 	
-	private float mapCamX, mapCamY = 0;
+	private static float mapCamX = 0;
+	private static float mapCamY = 0;
 	private float mapScrollSpeed = 1;
 	private boolean[] mapScrollMouseoverState = new boolean[4];
 	private float moveSpeed;
@@ -81,14 +82,12 @@ public class SPPlay extends BasicGameState {
 		
 		g.translate(-mapCamX * mapScrollSpeed, -mapCamY * mapScrollSpeed);
 
-		
-		map.render((int)-mapCamX,(int)-mapCamY);
-		//map.render((GV.SCREENWIDTH/2)-32,0);
-		//map.renderIsometricMap(0,0,64,16,64,32,null, false);
-		
+		//map.render((int)-mapCamX,(int)-mapCamY);
+		map.render((GV.SCREENWIDTH/2)-32,0);
+
 		//Draws the, well, notification prompt.
 		drawPrompt(g, gc, "line1", "line2", "line3", 1);
-		
+			
 		//Draw the Sample Hero.
 		animation.draw(100,100);
 
@@ -117,6 +116,12 @@ public class SPPlay extends BasicGameState {
 		}
 		if(mapScrollMouseoverState[2]) {
 			mapCamY += moveSpeed;
+		}
+		if(mapScrollMouseoverState[0] ||
+				mapScrollMouseoverState[1] ||
+				mapScrollMouseoverState[2] ||
+				mapScrollMouseoverState[3]) {
+			initMapScrollAreas(gc);
 		}
 		
 		// Implements scrolling by mousing over the edges of the map, checks interface.
@@ -181,10 +186,10 @@ public class SPPlay extends BasicGameState {
 	}
 	
 	public static void initMapScrollAreas(GameContainer gc) {
-		mapScroll[0] = new MouseOverArea(gc, null, 0, 0, GV.SCREENWIDTH, GV.MAPSCROLLBAR_THICKNESS);
-		mapScroll[1] = new MouseOverArea(gc, null, GV.SCREENWIDTH - GV.MAPSCROLLBAR_THICKNESS, 0, GV.MAPSCROLLBAR_THICKNESS, GV.SCREENHEIGHT);
-		mapScroll[2] = new MouseOverArea(gc, null, 0, GV.SCREENHEIGHT - GV.MAPSCROLLBAR_THICKNESS, GV.SCREENWIDTH, GV.MAPSCROLLBAR_THICKNESS);
-		mapScroll[3] = new MouseOverArea(gc, null, 0, 0, GV.MAPSCROLLBAR_THICKNESS, GV.SCREENHEIGHT);
+		mapScroll[0] = new MouseOverArea(gc, null, (int)mapCamX, (int)mapCamY, GV.SCREENWIDTH + (int)mapCamX, GV.MAPSCROLLBAR_THICKNESS + (int)mapCamY);
+		mapScroll[1] = new MouseOverArea(gc, null, (int)mapCamX + GV.SCREENWIDTH - GV.MAPSCROLLBAR_THICKNESS, (int)mapCamY, (int)mapCamX + GV.MAPSCROLLBAR_THICKNESS, (int)mapCamY + GV.SCREENHEIGHT);
+		mapScroll[2] = new MouseOverArea(gc, null, (int)mapCamX, (int)mapCamY + GV.SCREENHEIGHT - GV.MAPSCROLLBAR_THICKNESS, (int)mapCamX + GV.SCREENWIDTH, (int)mapCamY + GV.MAPSCROLLBAR_THICKNESS);
+		mapScroll[3] = new MouseOverArea(gc, null, (int)mapCamX, (int)mapCamY, (int)mapCamX + GV.MAPSCROLLBAR_THICKNESS,(int)mapCamY + GV.SCREENHEIGHT);
 	}
 	
 	//ID of the current state. Change '?' accordingly.
@@ -198,7 +203,7 @@ public class SPPlay extends BasicGameState {
 		//Transition tab into existence.
 		if(promptTransitionCount > 2 && isPromptActive == false && isPromptNeeded) {
 
-			if(promptElementXPos == 0 || promptElementXPos > 0) {
+			if(promptElementXPos == 0 + mapCamX || promptElementXPos > 0 + mapCamX) {
 				isPromptReadyForInteraction = true;
 			} else {
 				promptElementXPos += 1;
@@ -235,12 +240,12 @@ public class SPPlay extends BasicGameState {
 	public void drawPrompt(Graphics g, GameContainer gc, String pTextL1, String pTextL2, String pTextL3, int promptType) {
 		switch(promptType) {
 			case 1:
-				g.drawImage(promptTab, promptTabXPos,276);
-				g.drawImage(checkmark, 192 + promptElementXPos, 280);
-				promptOptions[0] = new MouseOverArea(gc, checkmark, 192 + promptElementXPos, 280, 24, 24);
-				GV.FONTLIGHT_EXO.drawString(5 + promptElementXPos, 280, pTextL1);
-				GV.FONTLIGHT_EXO.drawString(5 + promptElementXPos, 296, pTextL2);
-				GV.FONTLIGHT_EXO.drawString(5 + promptElementXPos, 312, pTextL3);
+				g.drawImage(promptTab, promptTabXPos + mapCamX ,276 + mapCamY);
+				g.drawImage(checkmark, 192 + promptElementXPos + mapCamX, 280 + mapCamY);
+				promptOptions[0] = new MouseOverArea(gc, checkmark, (192 + promptElementXPos + (int)mapCamX), 280 + (int)mapCamY, 24, 24);
+				GV.FONTLIGHT_EXO.drawString(5 + promptElementXPos + mapCamX, 280 + mapCamY, pTextL1);
+				GV.FONTLIGHT_EXO.drawString(5 + promptElementXPos + mapCamX, 296 + mapCamY, pTextL2);
+				GV.FONTLIGHT_EXO.drawString(5 + promptElementXPos + mapCamX, 312 + mapCamY, pTextL3);
 				break;
 			case 2:
 				g.drawImage(promptTab, promptTabXPos,276);
