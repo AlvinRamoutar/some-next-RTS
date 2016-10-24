@@ -9,7 +9,7 @@ import game.GV;
 
 public class SPPlay extends BasicGameState {
 	
-	private Image guiBacking;
+	private Image mapBackground;
 	protected Image promptTab;
 	protected Image x;
 	protected Image checkmark;
@@ -28,6 +28,9 @@ public class SPPlay extends BasicGameState {
 	private float mapScrollSpeed = 1;
 	private boolean[] mapScrollMouseoverState = new boolean[4];
 	private float moveSpeed;
+
+	private Animation animation;
+	private int start = 5000;
 	
 	//Constructor
 	public SPPlay(int state) {
@@ -36,7 +39,7 @@ public class SPPlay extends BasicGameState {
 	
 	//Initialize elements. Runs ONCE before any rendering.
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-		guiBacking = new Image("res/images/play/guiExperiment.jpg");
+		mapBackground = new Image("res/images/play/mapBackground.png");
 		promptTab = new Image("res/images/play/prompt/promptTab.png");
 		x = new Image("res/images/play/prompt/x.png");
 		checkmark = new Image("res/images/play/prompt/checkmark.png");
@@ -54,13 +57,30 @@ public class SPPlay extends BasicGameState {
 		
 		//Setting up map edges for scrolling.
 		initMapScrollAreas(gc);
+		
+		//Setting up the Sample Hero animation.
+		SpriteSheet sheet = new SpriteSheet("res/images/entities/hero/sampleHeroSS.png", 72, 72);
+		animation = new Animation();
+		
+		int tX = 0;
+	    int tY = 0;
+    	for (int row=0;row<8;row++) {
+    		tX = 0;
+    		for(int col=0;col<5;col++){
+    			tX++;
+    			animation.addFrame(sheet.getSprite(tX,tY), 60);
+    		}
+    		tY++;
+    	}
 	}
 	
 	//Draw objects to state/window.
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 		
-		//g.translate(-mapCamX * mapScrollSpeed, -mapCamY * mapScrollSpeed);
-		//g.drawImage(guiBacking,0,0);
+		g.drawImage(mapBackground,0,0);
+		
+		g.translate(-mapCamX * mapScrollSpeed, -mapCamY * mapScrollSpeed);
+
 		
 		map.render((int)-mapCamX,(int)-mapCamY);
 		//map.render((GV.SCREENWIDTH/2)-32,0);
@@ -68,6 +88,9 @@ public class SPPlay extends BasicGameState {
 		
 		//Draws the, well, notification prompt.
 		drawPrompt(g, gc, "line1", "line2", "line3", 1);
+		
+		//Draw the Sample Hero.
+		animation.draw(100,100);
 
 	}
 	
@@ -107,6 +130,10 @@ public class SPPlay extends BasicGameState {
 			}
 		}
 		
+		// Draw the Sample Hero
+		if (start >= 0) {
+			start -= delta;
+		}
 	}
 	
 	public void keyPressed(int key, char c) {
