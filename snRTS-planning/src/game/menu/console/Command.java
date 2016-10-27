@@ -45,6 +45,15 @@ public class Command {
 					game.Game.toggleFPS();
 				}
 				break;
+			case "togglemousecoords":
+				if(GV.SHOW_MOUSE_COORDS == false) {
+					print("Now showing Mouse Coordinates in-game.", 1);
+					GV.SHOW_MOUSE_COORDS = true;
+				} else {
+					print("Now hiding Mouse Coordinates in-game.", 1);
+					GV.SHOW_MOUSE_COORDS = false;
+				}
+				break;
 			case "help":
 				game.menu.MainMenu.openHelpPage(GV.HELPURL);
 				print("Launching help page in web browser.", 1);

@@ -2,6 +2,8 @@
 
 package game;
 
+import java.util.HashMap;
+
 import org.newdawn.slick.AngelCodeFont;
 
 public class GV {
@@ -31,6 +33,7 @@ public class GV {
 	public static AngelCodeFont FONTBOLD_COMFORTAA;
 	public static AngelCodeFont FONTLIGHT_COMFORTAA;
 	public static AngelCodeFont FONTLIGHT_EXO;
+	public static AngelCodeFont FONTBOLD_EXO;
 	
 	public static final String HELPURL = "https://github.com/AlvinRamoutar/some-next-RTS/";
 	
@@ -42,8 +45,12 @@ public class GV {
 	
 	public static String PLAYERNAME = "Player";
 	
+	public static boolean SHOW_MOUSE_COORDS = false;
 	public static boolean SCROLL_INTERFACE = true;		//default is keyboard
 	public static int MAPSCROLLBAR_THICKNESS = 16;
+	
+	public static HashMap<String, String> ACTIVE_ENTITIES = new HashMap<String, String>();
+	public static HashMap<String, String> MAP_OBJECTS = new HashMap<String, String>();
 	
 }
 

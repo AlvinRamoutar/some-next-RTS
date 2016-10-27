@@ -2,8 +2,8 @@
 fileVersion=1
 
 # font settings
-fontName=Exo 2 Light
-fontFile=
+fontName=Exo 2
+fontFile=Exo2/Exo2-Bold.ttf
 charSet=0
 fontSize=16
 aa=1
@@ -30,8 +30,8 @@ useFixedHeight=0
 forceZero=0
 
 # output file
-outWidth=128
-outHeight=128
+outWidth=192
+outHeight=192
 outBitDepth=32
 fontDescFormat=0
 fourChnlPacked=0

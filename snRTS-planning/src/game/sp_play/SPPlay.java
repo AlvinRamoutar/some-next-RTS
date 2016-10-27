@@ -46,7 +46,8 @@ public class SPPlay extends BasicGameState {
 		checkmark = new Image("res/images/play/prompt/checkmark.png");
 		
 		GV.FONTLIGHT_EXO = new AngelCodeFont("res/fonts/Exo/Exo-Light.fnt", "res/fonts/Exo/Exo-Light.png");
-		
+		GV.FONTBOLD_EXO = new AngelCodeFont("res/fonts/Exo/Exo-Bold.fnt", "res/fonts/Exo/Exo-Bold.png");
+
 		//Initializing the Map.
 		try {
 			map = new TiledMap("res/map/mapSample.tmx", "res/map/");
@@ -83,14 +84,20 @@ public class SPPlay extends BasicGameState {
 		g.translate(-mapCamX * mapScrollSpeed, -mapCamY * mapScrollSpeed);
 
 		//map.render((int)-mapCamX,(int)-mapCamY);
-		map.render((GV.SCREENWIDTH/2)-32,0);
+		map.render(0,0);
 
 		//Draws the, well, notification prompt.
 		drawPrompt(g, gc, "line1", "line2", "line3", 1);
 			
 		//Draw the Sample Hero.
-		animation.draw(100,100);
-
+		animation.draw(0,4*32);
+		
+		//Drawing mouse coordinates on top-right of screen.
+		if(GV.SHOW_MOUSE_COORDS == false) {
+			Input input = gc.getInput();
+			GV.FONTBOLD_EXO.drawString(540, 10, "X: " + input.getMouseX() + " |Y: " + input.getMouseY());
+		}
+		
 	}
 	
 	//Interact with drawn objects through updates.
