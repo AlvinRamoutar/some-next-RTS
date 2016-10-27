@@ -61,7 +61,7 @@ public class SPPlay extends BasicGameState {
 		initMapScrollAreas(gc);
 		
 		//Setting up the Sample Hero animation.
-		SpriteSheet sheet = new SpriteSheet("res/images/entities/hero/sampleHeroSS.png", 72, 72);
+		SpriteSheet sheet = new SpriteSheet("res/images/entities/hero/sampleHeroSS.png", 56, 56);
 		animation = new Animation();
 		
 		int tX = 0;
