@@ -32,6 +32,7 @@ public class SPPlay extends BasicGameState {
 
 	private Animation animation;
 	private int start = 5000;
+	private static Image defaultEntity;
 	
 	//Constructor
 	public SPPlay(int state) {
@@ -50,7 +51,7 @@ public class SPPlay extends BasicGameState {
 
 		//Initializing the Map.
 		try {
-			map = new TiledMap("res/map/mapSample.tmx", "res/map/");
+			map = new TiledMap("res/map/mapDraft02.tmx", "res/map/");
 			game.menu.console.Command.print("Map loaded successfully!", 1);
 		} catch(SlickException e) {
 			e.printStackTrace();
@@ -74,6 +75,8 @@ public class SPPlay extends BasicGameState {
     		}
     		tY++;
     	}
+    	
+    	defaultEntity = new Image("res/images/entities/defaultEntity.png");
 	}
 	
 	//Draw objects to state/window.
@@ -81,21 +84,25 @@ public class SPPlay extends BasicGameState {
 		
 		g.drawImage(mapBackground,0,0);
 		
+
 		g.translate(-mapCamX * mapScrollSpeed, -mapCamY * mapScrollSpeed);
 
 		//map.render((int)-mapCamX,(int)-mapCamY);
-		map.render(0,0);
-
+		//map.render(0,0);
+		map.render(0, 0, (int) (3), (int) (3), 20 + (int)(mapCamX / 20), 20 + (int)(mapCamY / 20), true);
+		
 		//Draws the, well, notification prompt.
 		drawPrompt(g, gc, "line1", "line2", "line3", 1);
 			
 		//Draw the Sample Hero.
-		animation.draw(0,4*32);
+		animation.draw(0,256);
+		g.drawImage(defaultEntity, 36, -75);
 		
 		//Drawing mouse coordinates on top-right of screen.
-		if(GV.SHOW_MOUSE_COORDS == false) {
+		if(GV.SHOW_MOUSE_COORDS) {
 			Input input = gc.getInput();
-			GV.FONTBOLD_EXO.drawString(540, 10, "X: " + input.getMouseX() + " |Y: " + input.getMouseY());
+			GV.FONTBOLD_EXO.drawString(480 + mapCamX, 10 + mapCamY, "WINDOW X: " + input.getMouseX() + " |Y: " + input.getMouseY());
+			GV.FONTBOLD_EXO.drawString(500 + mapCamX, 24 + mapCamY, "GAME X: " + (int)(input.getMouseX()+mapCamX) + " |Y: " + (int)(input.getMouseY()+mapCamY));
 		}
 		
 	}
