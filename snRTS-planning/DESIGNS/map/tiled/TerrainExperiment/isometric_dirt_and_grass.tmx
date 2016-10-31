@@ -124,14 +124,45 @@
   <tile id="22" terrain="1,1,1,1"/>
   <tile id="23" terrain="1,1,1,1"/>
  </tileset>
+ <tileset firstgid="97" name="isometric_grass_and_water_BLOCK" tilewidth="64" tileheight="64" tilecount="24" columns="4">
+  <image source="isometric_grass_and_water_BLOCK.png" width="256" height="384"/>
+  <terraintypes>
+   <terrain name="Block Grass" tile="0"/>
+   <terrain name="Block Water" tile="22"/>
+  </terraintypes>
+  <tile id="0" terrain="0,0,0,0"/>
+  <tile id="1" terrain="0,0,0,0"/>
+  <tile id="2" terrain="0,0,0,0"/>
+  <tile id="3" terrain="0,0,0,0"/>
+  <tile id="4" terrain="0,0,0,1"/>
+  <tile id="5" terrain="0,0,1,0"/>
+  <tile id="6" terrain="1,0,0,0"/>
+  <tile id="7" terrain="0,1,0,0"/>
+  <tile id="8" terrain="0,1,1,1"/>
+  <tile id="9" terrain="1,0,1,1"/>
+  <tile id="10" terrain="1,1,1,0"/>
+  <tile id="11" terrain="1,1,0,1"/>
+  <tile id="12" terrain="0,0,1,1"/>
+  <tile id="13" terrain="1,0,1,0"/>
+  <tile id="14" terrain="1,1,0,0"/>
+  <tile id="15" terrain="0,1,0,1"/>
+  <tile id="16" terrain="0,0,1,1"/>
+  <tile id="17" terrain="1,0,1,0"/>
+  <tile id="18" terrain="1,1,0,0"/>
+  <tile id="19" terrain="0,1,0,1"/>
+  <tile id="20" terrain="0,1,1,0"/>
+  <tile id="21" terrain="1,0,0,1"/>
+  <tile id="22" terrain="1,1,1,1"/>
+  <tile id="23" terrain="1,1,1,1"/>
+ </tileset>
  <layer name="Tile Layer 1" width="25" height="25">
   <data encoding="base64" compression="zlib">
-   eJyllulOwzAQhP0a6UFbroZQKGm5TyHxpweHuJGQ4P2fgrWYUYeVW4KwNHJz7HwZ23FaDyHUTBn6uqkhv9lTqft8vdZlcq+v1fuapg1ozfVLjuF9lNHE/U3UszYe75pK9DtQH1p2rFqCwbxt07apY1oxDUW76Afou6ZNaBXMZXDqCxjkdMHagF8pDPLUI3eZlhYwOD9NZFHPPdOlaR/HAxnPtmTRPPQlg3ORSU0J7+h7aDo1HeN4iOcuJL9y1l0W5i2EleN5o/cBPD1Hn1k5/TmMNuZgy9Qy9TAezDF0nPMwW1v0q8ncFAkGr/NaD2N1BT+up1KyleCoXx7m56Av13oHvurH+TlDtkHCrwojvhdc8yV8BuJ9ZDoBl2MVc2Ti4bM1pO/JNc45FfNcQMzVD7M1pIxUDn2XCncvfbz64WeOWviZYx7D51AfjmFUN8z2kti3wmz/mMfgvteRsc3lmVfgw/HwtZkw8gWMnnhpDj33n0ZP3TeZmeeyRN216c10U5HRDt/rdV0YnHOOn7ax6dX0Ybo3PVVg1MHhuJCp+7W2iekdjE/0z2AvYuj31u+lhauZmu5Mj2A8mG5xfpRg6HfLfysjZxP5Gq5uDM4L/CfwT2VRb//bf2c8YwqNoQmOfUv9F6nCYBv9kiGg3n9z/8Ko0r4AKHJTHA==
+   eJyllutu00AUhPc17KSXUJqkpOBcWihQQEj8aVIu4o6EBE5CCxWICpDg8ZlVZ9Txyi2WWOnT2pt4xnPO2kkrhJCDjHMLtO1Ys/DvzcGS5yXR2sK+L83Uw/VXwBbZtHlBlqY9p9fCdKUZdVY5b/I45/kOGHEeksK0ou4n8A0ccV1ZMqvLOrgBOmADTIwdzmPOPTCgRkn9L+A3ODEfz5ObT49eW9QbmYf8VENlOKV+5A/4Qd+jxEP9WWEW19wFD8FNno+tH/FeP4Pv5Cc4pu8J6+e9yJjlKu9/l7p7YB/c4fnE+qG9tAjV+vyybNGjD66ZV5/3G7VvUTP1GYbqPpXH0rJ9NQ/1+zpYA9ush3JMEp/75uH62rel+bStH8qS0yPW6hH1tJ9Glm1En5LX6DkRWnOPqHslnO2nDnVdT/25x2xj9qQbqvus5Jqex9QjPhcD6/nYaha1b4O79NVzGLNnpqEazkP1ndHm56qVei5ingdEuQrqdROPNJt7pP0oTCelCNUceajmuMgjzeE6qmGkF87fJXFeC+fvz4s89N7rWG37ds8b1FE90msz8+hf4rFtWp7D1/5nSDPu21V6K7PWsprrHoN34ElDj/Vwtl+75qGeq34+puAt+ACeg1cNPFr0UV3kWVgWHzPwnh4fOb+m92Ue/nvrPkNm8XEInoGX9HgBnnL9oMbDf7fzUN070WfAfO3kuil93lB/Rv26LK6dHvv+rPM4JFMy43k66v6LNPHQOPhHhsDr/b+D166JR5PxFx2LbMc=
   </data>
  </layer>
  <layer name="Tile Layer 2" width="25" height="25" offsetx="0" offsety="1">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMAqGFwgFYj8a25EAxGFA7EVDO6KB2B+IfYDYE0pTG4Dc78uACDNa+ieeARJmo4A6AAAf3QVo
+   eJztkDsKgDAQBfd6ip9KGwslMX4abQSv7wsGDJaS18gODOl2siuiKN+x0MGJNN+E+SvcSA2/wwFPYmOEC9zhTGzYlwxs1DKkRjyftYfybxpYkRsDbGFObHSwhgXMwpsa//9Snpsx9+nlvpmShguLExCa
   </data>
  </layer>
  <layer name="Tile Layer 3" width="25" height="25" offsetx="0" offsety="2">
