@@ -1,99 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="isometric" renderorder="right-down" width="25" height="25" tilewidth="64" tileheight="32" nextobjectid="1">
- <tileset firstgid="1" name="isometric_grass_and_water" tilewidth="64" tileheight="64" tilecount="24" columns="4">
-  <image source="isometric_grass_and_water.png" width="256" height="384"/>
-  <terraintypes>
-   <terrain name="Grass" tile="0"/>
-   <terrain name="Water" tile="22"/>
-  </terraintypes>
-  <tile id="0" terrain="0,0,0,0"/>
-  <tile id="1" terrain="0,0,0,0"/>
-  <tile id="2" terrain="0,0,0,0"/>
-  <tile id="3" terrain="0,0,0,0"/>
-  <tile id="4" terrain="0,0,0,1"/>
-  <tile id="5" terrain="0,0,1,0"/>
-  <tile id="6" terrain="1,0,0,0"/>
-  <tile id="7" terrain="0,1,0,0"/>
-  <tile id="8" terrain="0,1,1,1"/>
-  <tile id="9" terrain="1,0,1,1"/>
-  <tile id="10" terrain="1,1,1,0"/>
-  <tile id="11" terrain="1,1,0,1"/>
-  <tile id="12" terrain="0,0,1,1"/>
-  <tile id="13" terrain="1,0,1,0"/>
-  <tile id="14" terrain="1,1,0,0"/>
-  <tile id="15" terrain="0,1,0,1"/>
-  <tile id="16" terrain="0,0,1,1"/>
-  <tile id="17" terrain="1,0,1,0"/>
-  <tile id="18" terrain="1,1,0,0"/>
-  <tile id="19" terrain="0,1,0,1"/>
-  <tile id="20" terrain="0,1,1,0"/>
-  <tile id="21" terrain="1,0,0,1"/>
-  <tile id="22" terrain="1,1,1,1"/>
-  <tile id="23" terrain="1,1,1,1"/>
- </tileset>
- <tileset firstgid="25" name="isometric_dirt_and_grass" tilewidth="64" tileheight="64" tilecount="24" columns="4">
-  <image source="isometric_dirt_and_grass.png" width="256" height="384"/>
-  <terraintypes>
-   <terrain name="Grass to Dirt" tile="0"/>
-   <terrain name="Dirt" tile="22"/>
-  </terraintypes>
-  <tile id="0" terrain="0,0,0,0"/>
-  <tile id="1" terrain="0,0,0,0"/>
-  <tile id="2" terrain="0,0,0,0"/>
-  <tile id="3" terrain="0,0,0,0"/>
-  <tile id="4" terrain="0,0,0,1"/>
-  <tile id="5" terrain="0,0,1,0"/>
-  <tile id="6" terrain="1,0,0,0"/>
-  <tile id="7" terrain="0,1,0,0"/>
-  <tile id="8" terrain="0,1,1,1"/>
-  <tile id="9" terrain="1,0,1,1"/>
-  <tile id="10" terrain="1,1,1,0"/>
-  <tile id="11" terrain="1,1,0,1"/>
-  <tile id="12" terrain="0,0,1,1"/>
-  <tile id="13" terrain="1,0,1,0"/>
-  <tile id="14" terrain="1,1,0,0"/>
-  <tile id="15" terrain="0,1,0,1"/>
-  <tile id="16" terrain="0,0,1,1"/>
-  <tile id="17" terrain="1,0,1,0"/>
-  <tile id="18" terrain="1,1,0,0"/>
-  <tile id="19" terrain="0,1,0,1"/>
-  <tile id="20" terrain="0,1,1,0"/>
-  <tile id="21" terrain="1,0,0,1"/>
-  <tile id="22" terrain="1,1,1,1"/>
-  <tile id="23" terrain="1,1,1,1"/>
- </tileset>
- <tileset firstgid="49" name="isometric_moss_and_dirt" tilewidth="64" tileheight="64" tilecount="24" columns="4">
-  <image source="isometric_moss_and_dirt.png" width="256" height="384"/>
-  <terraintypes>
-   <terrain name="Dirt to Moss" tile="0"/>
-   <terrain name="Moss" tile="22"/>
-  </terraintypes>
-  <tile id="0" terrain="0,0,0,0"/>
-  <tile id="1" terrain="0,0,0,0"/>
-  <tile id="2" terrain="0,0,0,0"/>
-  <tile id="3" terrain="0,0,0,0"/>
-  <tile id="4" terrain="0,0,0,1"/>
-  <tile id="5" terrain="0,0,1,0"/>
-  <tile id="6" terrain="1,0,0,0"/>
-  <tile id="7" terrain="0,1,0,0"/>
-  <tile id="8" terrain="0,1,1,1"/>
-  <tile id="9" terrain="1,0,1,1"/>
-  <tile id="10" terrain="1,1,1,0"/>
-  <tile id="11" terrain="1,1,0,1"/>
-  <tile id="12" terrain="0,0,1,1"/>
-  <tile id="13" terrain="1,0,1,0"/>
-  <tile id="14" terrain="1,1,0,0"/>
-  <tile id="15" terrain="0,1,0,1"/>
-  <tile id="16" terrain="0,0,1,1"/>
-  <tile id="17" terrain="1,0,1,0"/>
-  <tile id="18" terrain="1,1,0,0"/>
-  <tile id="19" terrain="0,1,0,1"/>
-  <tile id="20" terrain="0,1,1,0"/>
-  <tile id="21" terrain="1,0,0,1"/>
-  <tile id="22" terrain="1,1,1,1"/>
-  <tile id="23" terrain="1,1,1,1"/>
- </tileset>
- <tileset firstgid="73" name="isometric_dirt_and_grass_BLOCK" tilewidth="64" tileheight="64" tilecount="24" columns="4">
+ <tileset firstgid="1" name="isometric_dirt_and_grass_BLOCK" tilewidth="64" tileheight="64" tilecount="24" columns="4">
   <image source="isometric_dirt_and_grass_BLOCK.png" width="256" height="384"/>
   <terraintypes>
    <terrain name="Block Grass" tile="0"/>
@@ -124,7 +31,7 @@
   <tile id="22" terrain="1,1,1,1"/>
   <tile id="23" terrain="1,1,1,1"/>
  </tileset>
- <tileset firstgid="97" name="isometric_grass_and_water_BLOCK" tilewidth="64" tileheight="64" tilecount="24" columns="4">
+ <tileset firstgid="25" name="isometric_grass_and_water_BLOCK" tilewidth="64" tileheight="64" tilecount="24" columns="4">
   <image source="isometric_grass_and_water_BLOCK.png" width="256" height="384"/>
   <terraintypes>
    <terrain name="Block Grass" tile="0"/>
@@ -155,19 +62,51 @@
   <tile id="22" terrain="1,1,1,1"/>
   <tile id="23" terrain="1,1,1,1"/>
  </tileset>
+ <tileset firstgid="49" name="isometric_moss_and_dirt_BLOCK" tilewidth="64" tileheight="64" tilecount="24" columns="4">
+  <image source="isometric_moss_and_dirt_BLOCK.png" width="256" height="384"/>
+  <terraintypes>
+   <terrain name="Block Dirt" tile="0"/>
+   <terrain name="Block Moss" tile="22"/>
+  </terraintypes>
+  <tile id="0" terrain="0,0,0,0"/>
+  <tile id="1" terrain="0,0,0,0"/>
+  <tile id="2" terrain="0,0,0,0"/>
+  <tile id="3" terrain="0,0,0,0"/>
+  <tile id="4" terrain="0,0,0,1"/>
+  <tile id="5" terrain="0,0,1,0"/>
+  <tile id="6" terrain="1,0,0,0"/>
+  <tile id="7" terrain="0,1,0,0"/>
+  <tile id="8" terrain="0,1,1,1"/>
+  <tile id="9" terrain="1,0,1,1"/>
+  <tile id="10" terrain="1,1,1,0"/>
+  <tile id="11" terrain="1,1,0,1"/>
+  <tile id="12" terrain="0,0,1,1"/>
+  <tile id="13" terrain="1,0,1,0"/>
+  <tile id="14" terrain="1,1,0,0"/>
+  <tile id="15" terrain="0,1,0,1"/>
+  <tile id="16" terrain="0,0,1,1"/>
+  <tile id="17" terrain="1,0,1,0"/>
+  <tile id="18" terrain="1,1,0,0"/>
+  <tile id="19" terrain="0,1,0,1"/>
+  <tile id="20" terrain="0,1,1,0"/>
+  <tile id="21" terrain="1,0,0,1"/>
+  <tile id="22" terrain="1,1,1,1"/>
+  <tile id="23" terrain="1,1,1,1"/>
+ </tileset>
+ <tileset firstgid="73" name="New Isometric tile set" tilewidth="64" tileheight="64" tilecount="160" columns="10">
+  <image source="../New Isometric tile set.png" width="640" height="1024"/>
+ </tileset>
+ <tileset firstgid="233" name="isometric_wall_BLOCK" tilewidth="64" tileheight="64" tilecount="24" columns="4">
+  <image source="isometric_wall_BLOCK.png" width="256" height="384"/>
+ </tileset>
  <layer name="Tile Layer 1" width="25" height="25">
   <data encoding="base64" compression="zlib">
-   eJyllutu00AUhPc17KSXUJqkpOBcWihQQEj8aVIu4o6EBE5CCxWICpDg8ZlVZ9Txyi2WWOnT2pt4xnPO2kkrhJCDjHMLtO1Ys/DvzcGS5yXR2sK+L83Uw/VXwBbZtHlBlqY9p9fCdKUZdVY5b/I45/kOGHEeksK0ou4n8A0ccV1ZMqvLOrgBOmADTIwdzmPOPTCgRkn9L+A3ODEfz5ObT49eW9QbmYf8VENlOKV+5A/4Qd+jxEP9WWEW19wFD8FNno+tH/FeP4Pv5Cc4pu8J6+e9yJjlKu9/l7p7YB/c4fnE+qG9tAjV+vyybNGjD66ZV5/3G7VvUTP1GYbqPpXH0rJ9NQ/1+zpYA9ush3JMEp/75uH62rel+bStH8qS0yPW6hH1tJ9Glm1En5LX6DkRWnOPqHslnO2nDnVdT/25x2xj9qQbqvus5Jqex9QjPhcD6/nYaha1b4O79NVzGLNnpqEazkP1ndHm56qVei5ingdEuQrqdROPNJt7pP0oTCelCNUceajmuMgjzeE6qmGkF87fJXFeC+fvz4s89N7rWG37ds8b1FE90msz8+hf4rFtWp7D1/5nSDPu21V6K7PWsprrHoN34ElDj/Vwtl+75qGeq34+puAt+ACeg1cNPFr0UV3kWVgWHzPwnh4fOb+m92Ue/nvrPkNm8XEInoGX9HgBnnL9oMbDf7fzUN070WfAfO3kuil93lB/Rv26LK6dHvv+rPM4JFMy43k66v6LNPHQOPhHhsDr/b+D166JR5PxFx2LbMc=
+   eJyVll1OwzAQhH0LO0nvgByHggQSICFxA954Rtz/AsTSrjoMs077MErqjffz/tjumlJaSZupv+ddxXQyLWDvavBeyccm/KM923znTMApNo5+lY+I4co2H+PonJnYo3WOOAWe2bRALN+7zmC7JY5Ga8SnMxZj5PS3XhxTxKiQnxX8ZKp5Z3wRx+Pxda4BA2vBccymCRjPguPrVIxGDMwDMhbz3/VD/rk2zHB2Id9YD++tz113Jvyu0FpHPYV1uLcxzFUGxgfNqVcwuFcebWxKl77qv592vZgwljMxmmBw7C7P1cnsD1DHLOQMdQ6oevhZ4nG47c3E/YGMo94txJiB8Zr+94Xai9FZw3N8D/pe72PvVu8ohlEcNWDMwMFe4L002h+cKyXOjbJt4D9iNPhW1YXjY9s194fnags46ry9laF6a5Q7vMfYv9ob6vznPGfyUYP11wMGf8t1RB9FzDvyH8UbrZH3A98f6ryK8qnGlZ3Hjv63RDFEsbOtj/0Ca9xj2w==
   </data>
  </layer>
- <layer name="Tile Layer 2" width="25" height="25" offsetx="0" offsety="1">
+ <layer name="Tile Layer 2" width="25" height="25">
   <data encoding="base64" compression="zlib">
-   eJztkDsKgDAQBfd6ip9KGwslMX4abQSv7wsGDJaS18gODOl2siuiKN+x0MGJNN+E+SvcSA2/wwFPYmOEC9zhTGzYlwxs1DKkRjyftYfybxpYkRsDbGFObHSwhgXMwpsa//9Snpsx9+nlvpmShguLExCa
-  </data>
- </layer>
- <layer name="Tile Layer 3" width="25" height="25" offsetx="0" offsety="2">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMAroB7zpYIcnEHvR0HyQ2b5AHEpDO0AgAogTaGzHKBi6AACCdgKD
+   eJxjYBgFo2AUDAXwig52fKKzHch+eklFt3zCwR5OdrxEEqfEjo9A/BmK39PIDlyAHnagg+FixygYBSAAAH4IH8I=
   </data>
  </layer>
 </map>
