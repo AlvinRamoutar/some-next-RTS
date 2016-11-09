@@ -1,0 +1,38 @@
+################################################################
+# Entity Database [TEMP]                                       #
+#                                                              #
+#                                                              #
+################################################################
+
+Bio
+	Worker
+		HP
+		ATK
+		DEF
+		SPD
+		
+	Scout
+	Warrior
+	Medic(?)
+	Advanced Warrior
+	Mega Unit
+	Hero
+
+Arcane
+	Worker
+	Scout
+	Warrior
+	Medic
+	Advanced Warrior
+	Mega Unit
+	Hero
+		
+Humane
+	Worker
+	Scout
+	Warrior
+	Medic
+	Advanced Warrior
+	Mega Unit
+	Hero
+	
