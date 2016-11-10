@@ -4,12 +4,9 @@
   <tileoffset x="0" y="16"/>
   <image source="isometric_grass_and_water.png" width="256" height="384"/>
  </tileset>
- <tileset firstgid="25" name="BRIDGE" tilewidth="32" tileheight="32" tilecount="9" columns="3">
-  <image source="BRIDGE.png" width="96" height="96"/>
- </tileset>
  <layer name="Tile Layer 1" width="50" height="50">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3SwQnAIBQFwW8X6b/SpAllJXOQvemDcc3M8521sTvvPtnCBh48qi1s4MGj2sIGHjyqLWzgwaPawgYePKotbODB489v+Fc8bm1hAw8e1RY28OBRbWEDDx7VFjbw4FFtYQMPHtWeeOMFDfAIyhAnAAA=
+   H4sIAAAAAAAAC+3TQQqAIBCG0fEW3v+ktW6RQWh/8hbDBxEO8bJVVT+nTezMs+92Xp/3l+eu/gYeGR6jefrel7OTh/vBY0Z3mJ083A8efyyPrPLIKo+s8sgqj6za4b/iwYMHDx48UsojqzyyyiOrPLLKI6s8ssojqyt2HJ0T7vQQJwAA
   </data>
  </layer>
 </map>
