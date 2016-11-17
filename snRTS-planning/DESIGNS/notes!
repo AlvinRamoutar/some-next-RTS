@@ -1,1 +1,18 @@
-All designs go here!!!
+################################################################
+# Notes regarding designing                                    #
+#                                                              #
+#                                                              #
+################################################################
+
+MAP:
+Current screen size 640 x 480
+	Render map segments at around dimensions 10x15
+		(wide by 10, high by 15 tiles). > Doesn't fill screen.
+	Render map segments at around dimensions 15x20
+		(wide by 15, high by 20 tiles). >Proper diagional fill, map movement generates gaps.
+	Render map segments at around dimensions 25x25
+		Divides 300x500 map nicely.
+		Running @ 600 fps.
+		TEST: Render 4 map segments at around total dimensions 50x50.
+			Running @ 500 fps. > Test passed! Dimensions are feasible.
+			

@@ -89,7 +89,9 @@ public class SPPlay extends BasicGameState {
 
 		//map.render((int)-mapCamX,(int)-mapCamY);
 		//map.render(0,0);
-		map.render(0, 0, (int) (3), (int) (3), 20 + (int)(mapCamX / 20), 20 + (int)(mapCamY / 20), true);
+		//map.render(0, 0, (int) (3), (int) (3), 20 + (int)(mapCamX / 20), 20 + (int)(mapCamY / 20), true);
+		map.render(0 ,0 , 10, 10, 8, 8, true);
+		
 		
 		//Draws the, well, notification prompt.
 		drawPrompt(g, gc, "line1", "line2", "line3", 1);
